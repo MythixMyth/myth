@@ -1,6 +1,6 @@
+local gravity
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Volleyball 4.4", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
-
 local Tab = Window:MakeTab({
     Name = "Player",
     Icon = "rbxassetid://4483345998",
@@ -36,18 +36,16 @@ local Tab = Window:MakeTab({
     end
    })
    
-   local gravity
-   normalgravity = workspace.Gravity
       Tab:AddSlider({
        Name = "Gravity",
-       Min = normalgravity,
-       Max = 35,
-       Default = 15,
+       Min = 30,
+       Max = 42,
+       Default = 42,
        Color = Color3.fromRGB(0,255,0),
        Increment = 1,
        ValueName = "Gravity",
        Callback = function(Value)
-       gravity = Value
+       Workspace.Gravity = Value
     end
    })
    Tab:AddBind({
