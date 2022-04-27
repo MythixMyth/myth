@@ -1,0 +1,144 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Volleyball 4.4", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local Tab = Window:MakeTab({
+    Name = "Player",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+   Tab:AddSlider({
+       Name = "Tilt",
+       Min = 3000,
+       Max = 5500,
+       Default = 16,
+       Color = Color3.fromRGB(0,255,0),
+       Increment = 1,
+       ValueName = "Tilt",
+       Callback = function(Value)
+       --local char = game.Players.LocalPlayer.Character or game.Players.LocalpLayer.CharacterAdded:Wait()
+        --local tilt = char:FindFirstChild("HumanoidRootPart"):FindFirstChild("Tilt")
+        --tilt.P = Value
+    end
+   })
+   
+   local walkspeedvalue
+   Tab:AddSlider({
+       Name = "WalkSpeed",
+       Min = 16,
+       Max = 25,
+       Default = 16,
+       Color = Color3.fromRGB(0,255,0),
+       Increment = 1,
+       ValueName = "Walkspeed",
+       Callback = function(Value)
+       walkspeedvalue = Value
+    end
+   })
+   
+   local gravity
+   normalgravity = workspace.Gravity
+      Tab:AddSlider({
+       Name = "Gravity",
+       Min = normalgravity,
+       Max = 35,
+       Default = 15,
+       Color = Color3.fromRGB(0,255,0),
+       Increment = 1,
+       ValueName = "Gravity",
+       Callback = function(Value)
+       gravity = Value
+    end
+   })
+   Tab:AddBind({
+       Name = "Inf Stam",
+       Default = Enum.KeyCode.RightControl,
+       Hold = false,
+       Callback = function()
+       game.ReplicatedStorage.GameValues.staminaRegen.Value = math.huge
+       end
+   })
+   
+   local walkspeedtoggle = false
+   Tab:AddBind({
+       Name = "Set Walkspeed",
+       Default = Enum.KeyCode.LeftControl,
+       Hold = false,
+       Callback = function()
+       walkspeedtoggle = not walkspeedtoggle
+       end
+   })
+   
+      local gravitytoggle = false
+   Tab:AddBind({
+       Name = "Set Jump Power",
+       Default = Enum.KeyCode.N,
+       Hold = false,
+       Callback = function()
+       gravitytoggle = not gravitytoggle
+       end
+   })
+   
+
+local OtherTab = Window:MakeTab({
+    Name = "Other",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+
+OtherTab:AddParagraph("Flick Mid air","For flicking mid air u can hold 4 mid air in order to move")
+OtherTab:AddParagraph("Walkspeed","Because everytime you jump your walkspeed cancels out The keybind for it is LeftControl so press left ctrl if your walkspeed cancels Default value will be 23")
+
+
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+
+local flicktoggle
+OtherTab:AddToggle({
+	Name = "Flick",
+	Default = false,
+	Color = Color3.fromRGB(0,255,0),
+	Callback = function(Value)
+	    flicktoggle = Value
+	end    
+})
+
+mouse.KeyDown:connect(function(key)
+    if flicktoggle and Enum.KeyCode.W then -- change the "4" to change what key you press to enable mid air rotation. press the key mid air.
+        player.Character.Humanoid.AutoRotate = true
+    end
+    end)
+
+
+while true do
+if walkspeedtoggle then
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = walkspeedvalue
+    else
+     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16   
+end
+task.wait()
+end
+
+while true do
+if gravitytoggle then
+    workspace.Gravity = gravity
+    else
+     game.Players.LocalPlayer.Character.Humanoid.JumpPower = normalgravity   
+end
+task.wait()
+end
+
+local CreditsTab = Window:MakeTab({
+    Name = "Credits",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false,
+})
+    CreditsTab:AddParagraph("Walkspeed , Inf stam by Mythix")
+    CreditsTab:AddParagraph("Tilt by Doku")
+    CreditsTab:AddParagraph("Flick by 24kSwisha")
+
+
+
+
+OrionLib:Init()
