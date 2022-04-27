@@ -134,7 +134,7 @@ local CreditsTab = Window:MakeTab({
 })
     CreditsTab:AddParagraph("Walkspeed , Inf stam by Mythix")
     CreditsTab:AddParagraph("Tilt by Doku")
-    CreditsTab:AddParagraph("Flick by 24kSwisha")
+    CreditsTab:AddParagraph("Flick by Anonymous")
 
 
 
