@@ -13,8 +13,8 @@ local Tab = Window:MakeTab({
 
    Tab:AddSlider({
        Name = "Tilt",
-       Min = 3000,
-       Max = 5500,
+       Min = 1000,
+       Max = 15000,
        Default = 16,
        Color = Color3.fromRGB(0,255,0),
        Increment = 1,
@@ -138,7 +138,7 @@ local CreditsTab = Window:MakeTab({
 })
     CreditsTab:AddParagraph("Walkspeed , Inf stam by Mythix")
     CreditsTab:AddParagraph("Tilt by Doku")
-    CreditsTab:AddParagraph("Flick by 24kSwisha")
+    CreditsTab:AddParagraph("Flick by Anonymous")
 
 
 
