@@ -144,4 +144,3 @@ local CreditsTab = Window:MakeTab({
 
 
 OrionLib:Init()
-end
