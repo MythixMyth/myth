@@ -1,3 +1,4 @@
+
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Volleyball 4.4", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 local Tab = Window:MakeTab({
@@ -101,6 +102,19 @@ OtherTab:AddToggle({
 	end    
 })
 
+OtherTab:AddToggle({
+	Name = "remove Jump cap",
+	Default = false,
+	Color = Color3.fromRGB(0,255,0),
+	Callback = function()
+	    if true then
+        game.workspace.Ceiling.Size = Vector3.new (1,1,1)
+        else
+        game.workspace.Ceiling.Size = Vector3.new (99.95999145507812,63.75,100)
+        end
+    end    
+})
+
 mouse.KeyDown:connect(function(key)
     if flicktoggle and Enum.KeyCode.W then -- change the "4" to change what key you press to enable mid air rotation. press the key mid air.
         player.Character.Humanoid.AutoRotate = true
@@ -126,14 +140,14 @@ end
 task.wait()
 end
 
-local CreditsTab = Window:MakeTab({
+local Tab = Window:MakeTab({
     Name = "Credits",
     Icon = "rbxassetid://4483345998",
-    PremiumOnly = false,
+    PremiumOnly = false
 })
-    CreditsTab:AddParagraph("Walkspeed , Inf stam by Mythix")
-    CreditsTab:AddParagraph("Tilt by Doku")
-    CreditsTab:AddParagraph("Flick by Anonymous")
+   -- "Walkspeed , Inf stam by Mythix"
+   -- "Tilt by Doku"
+   -- "Flick by Anonymous"
 
 
 
