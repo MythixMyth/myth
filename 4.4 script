@@ -25,7 +25,7 @@ local Tab = Window:MakeTab({
    Tab:AddSlider({
        Name = "WalkSpeed",
        Min = 16,
-       Max = 25,
+       Max = 30,
        Default = 16,
        Color = Color3.fromRGB(0,255,0),
        Increment = 1,
