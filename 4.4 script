@@ -126,7 +126,7 @@ while true do
 if gravitytoggle then
     workspace.Gravity = gravity
     else
-     game.Players.LocalPlayer.Character.Humanoid.JumpPower = normalgravity   
+     workspace.Gravity = 42   
 end
 task.wait()
 end
