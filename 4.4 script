@@ -1,8 +1,3 @@
-local ids = {"2312454482","1369091362","147353110","2247112889","2242445145","3235035845","3235035845","408442280","483880444","35016641"}
-
-if table.find(ids,game.Players.LocalPlayer.UserId) then
-
-
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Volleyball 4.4", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 local Tab = Window:MakeTab({
