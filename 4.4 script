@@ -20,9 +20,9 @@ local Tab = Window:MakeTab({
        Increment = 1,
        ValueName = "Tilt",
        Callback = function(Value)
-       --local char = game.Players.LocalPlayer.Character or game.Players.LocalpLayer.CharacterAdded:Wait()
-        --local tilt = char:FindFirstChild("HumanoidRootPart"):FindFirstChild("Tilt")
-        --tilt.P = Value
+       local char = game.Players.LocalPlayer.Character or game.Players.LocalpLayer.CharacterAdded:Wait()
+        local tilt = char:FindFirstChild("HumanoidRootPart"):FindFirstChild("Tilt")
+        tilt.P = Value
     end
    })
    
