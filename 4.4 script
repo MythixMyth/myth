@@ -1,5 +1,11 @@
+local Keys = game:HttpGetAsync("https://robloxvolleyballhub.000webhostapp.com/check.php") -- Keys
+local Blacklisted = "" -- Website
 
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local ParsedKeys = Keys:split(",")
+for _, Key in ipairs(ParsedKeys) do
+    if LocalPlayer.Name:lower() == Key:lower():gsub(" ", "") then
+          local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Volleyball 4.4", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 local Tab = Window:MakeTab({
     Name = "Player",
@@ -39,8 +45,8 @@ local Tab = Window:MakeTab({
       Tab:AddSlider({
        Name = "Gravity",
        Min = 30,
-       Max = 42,
-       Default = 42,
+       Max = 46,
+       Default = 46,
        Color = Color3.fromRGB(0,255,0),
        Increment = 1,
        ValueName = "Gravity",
@@ -135,7 +141,7 @@ while true do
 if gravitytoggle then
     workspace.Gravity = gravity
     else
-     workspace.Gravity = 42   
+     workspace.Gravity = 46
 end
 task.wait()
 end
@@ -153,3 +159,5 @@ local Tab = Window:MakeTab({
 
 
 OrionLib:Init()
+    end
+end
